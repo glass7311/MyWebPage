@@ -84,7 +84,7 @@ h2 .i{color:var(--plum)}
 /* GALLERY */
 .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .ph{aspect-ratio:1;border-radius:22px;border:2px dashed var(--line);background:var(--bg);display:grid;place-items:center;text-align:center;color:var(--ink2);font-size:14px;font-weight:600;position:relative;overflow:hidden}
-.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%}
 .ph .i{font-size:38px;color:var(--navy);margin:0 auto 6px}
 .hint{margin-top:14px;font-size:14px;color:var(--ink2)}
 
@@ -225,12 +225,12 @@ footer{padding:28px 0 100px;text-align:center;font-size:13px;color:var(--ink2);b
 <section id="gallery" class="blk w"><div class="wrap">
   <h2><svg class="i"><use href="#img"/></svg>GALLERY</h2>
   <div class="gal">
-    <!-- 사진 교체: 주석을 풀고 파일명을 바꾸세요 -->
-    <div class="ph"><!-- <img src="photo1.jpg" alt="사진 1"> --><div><svg class="i"><use href="#cam"/></svg>사진 1</div></div>
-    <div class="ph"><!-- <img src="photo2.jpg" alt="사진 2"> --><div><svg class="i"><use href="#cam"/></svg>사진 2</div></div>
-    <div class="ph"><!-- <img src="photo3.jpg" alt="사진 3"> --><div><svg class="i"><use href="#cam"/></svg>사진 3</div></div>
+    
+    <div class="ph"><img src="photo1.jpg" alt="비트루비우스적 인간"></div>
+    <div class="ph"><img src="photo2.jpg" alt="노인의 초상 (자화상 추정)"></div>
+    <div class="ph"><img src="photo3.jpg" alt="여인의 머리 습작"></div>
   </div>
-  <p class="hint">사진은 index.html과 같은 폴더에 두고, 위 코드의 주석을 풀어 파일명을 바꾸면 들어갑니다.</p>
+  
 </div></section>
 
 <section id="contact" class="blk"><div class="wrap">
