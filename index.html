@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>glass731</title>
+<meta name="description" content="glass731 — 송’s World">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{
+  --bg:#f5f5f7; --surface:#ffffff; --ink:#2a2c33; --ink2:#5d6068; --line:#dcdde2;
+  --navy:#1d2d63; --plum:#8a2a5c; --soft-navy:#e8ebf5; --soft-plum:#f4e8ef;
+  --font:'Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--plum);outline-offset:3px;border-radius:6px}
+svg{display:block}
+.ico{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+/* 상단 메뉴 */
+header{position:sticky;top:0;z-index:20;background:rgba(245,245,247,.82);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:17px;color:var(--navy);letter-spacing:-.02em}
+.logo .ico{font-size:22px;color:var(--plum)}
+nav ul{display:flex;gap:4px;list-style:none}
+nav a{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;font-size:14px;font-weight:600;color:var(--ink2);transition:background .2s,color .2s}
+nav a:hover{background:var(--soft-navy);color:var(--navy)}
+nav a.on{background:var(--navy);color:#fff}
+.burger{display:none;background:none;border:0;font-size:26px;color:var(--ink);cursor:pointer;padding:6px;border-radius:8px}
+
+/* HOME */
+#home{padding:72px 0 96px}
+.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
+h1{font-size:clamp(40px,7.2vw,84px);line-height:1.08;letter-spacing:-.045em;font-weight:900;color:var(--navy);word-break:keep-all}
+h1 .w{color:var(--plum)}
+.hero p.sub{margin-top:24px;font-size:19px;color:var(--ink2);max-width:30em;word-break:keep-all}
+.btns{margin-top:36px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:700;font-size:16px;border:2px solid var(--navy);transition:transform .15s,background .2s,color .2s}
+.btn .ico{font-size:18px}
+.btn.fill{background:var(--navy);color:#fff}
+.btn.fill:hover{background:var(--plum);border-color:var(--plum)}
+.btn.line{color:var(--navy)}
+.btn.line:hover{background:var(--navy);color:#fff}
+.btn:active{transform:scale(.97)}
+.portrait{aspect-ratio:4/5;border-radius:28px;background:var(--surface);border:2px dashed var(--line);display:grid;place-items:center;text-align:center;padding:20px;color:var(--ink2);overflow:hidden;position:relative}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.portrait .ico{font-size:72px;color:var(--navy);margin:0 auto 12px;stroke-width:1.3}
+.portrait b{display:block;color:var(--ink);font-size:15px}
+.portrait small{font-size:13px}
+.rise{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.rise.d1{animation-delay:.12s}.rise.d2{animation-delay:.24s}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* 공통 섹션 */
+section.blk{padding:96px 0;border-top:1px solid var(--line)}
+section.blk.white{background:var(--surface)}
+h2{font-size:clamp(30px,4.6vw,48px);letter-spacing:-.04em;font-weight:900;color:var(--navy);line-height:1.15;margin-bottom:12px;display:flex;align-items:center;gap:14px}
+h2 .ico{font-size:.9em;color:var(--plum)}
+.lead{color:var(--ink2);font-size:17px;margin-bottom:44px;word-break:keep-all}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.story p{font-size:18px;margin-bottom:22px;word-break:keep-all}
+.story p span{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--plum);margin-bottom:2px}
+.story p span .ico{font-size:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chip{padding:7px 14px;border-radius:999px;background:var(--soft-navy);color:var(--navy);font-size:14px;font-weight:600}
+.chip.p{background:var(--soft-plum);color:var(--plum)}
+.chip.g{background:#ececef;color:var(--ink)}
+.kw{display:grid;gap:18px;align-content:start}
+.kw h3{font-size:14px;color:var(--ink2);font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.kw h3 .ico{font-size:17px}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.card{background:var(--bg);border-radius:22px;padding:28px}
+.card .ico{font-size:34px;color:var(--navy);margin-bottom:14px}
+.card h3{font-size:15px;color:var(--ink2);font-weight:600;margin-bottom:4px}
+.card p{font-size:20px;font-weight:800;letter-spacing:-.03em;word-break:keep-all}
+
+/* WORK */
+.work{display:grid;grid-template-columns:1.35fr 1fr;gap:20px;align-items:stretch}
+.act{background:var(--surface);border-radius:28px;padding:36px;display:flex;flex-direction:column;gap:18px}
+.act.main{background:var(--navy);color:#fff}
+.act .top{display:flex;align-items:center;gap:14px}
+.act .pic{width:56px;height:56px;border-radius:16px;background:var(--soft-navy);color:var(--navy);display:grid;place-items:center;flex:none}
+.act.main .pic{background:rgba(255,255,255,.14);color:#fff}
+.act .pic .ico{font-size:30px}
+.act h3{font-size:26px;letter-spacing:-.03em;font-weight:900}
+.act .meta{font-size:14px;opacity:.75}
+.act .quote{font-size:22px;font-weight:800;letter-spacing:-.03em;word-break:keep-all}
+.act.main .quote{font-size:30px}
+.act dl{display:grid;gap:12px;font-size:15px}
+.act dt{font-weight:700;font-size:13px;opacity:.7;display:flex;align-items:center;gap:6px}
+.act dt .ico{font-size:15px}
+.act dd{font-size:16px}
+.badge{align-self:flex-start;font-size:13px;font-weight:700;padding:5px 12px;border-radius:999px;background:var(--plum);color:#fff}
+
+/* GALLERY */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ph{aspect-ratio:1/1;border-radius:22px;border:2px dashed var(--line);background:var(--bg);display:grid;place-items:center;text-align:center;color:var(--ink2);font-size:13px;padding:12px;position:relative;overflow:hidden}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph .ico{font-size:36px;color:var(--navy);margin:0 auto 6px;stroke-width:1.4}
+
+/* CONTACT */
+#contact{text-align:center}
+#contact h2{justify-content:center}
+.mail{display:inline-flex;align-items:center;gap:12px;margin-top:8px;font-size:clamp(20px,3.6vw,30px);font-weight:800;color:var(--navy);padding:20px 34px;border-radius:999px;background:var(--surface);border:2px solid var(--navy);transition:background .2s,color .2s;word-break:break-all}
+.mail:hover{background:var(--navy);color:#fff}
+.mail .ico{font-size:1.1em}
+footer{padding:32px 0;text-align:center;font-size:13px;color:var(--ink2);border-top:1px solid var(--line)}
+
+/* 모바일 */
+@media (max-width:820px){
+  .hero,.about-grid,.work{grid-template-columns:1fr}
+  .portrait{aspect-ratio:16/10;order:-1}
+  .three,.gal{grid-template-columns:1fr 1fr}
+  .burger{display:block}
+  nav{position:absolute;left:0;right:0;top:56px;background:var(--bg);border-bottom:1px solid var(--line);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;padding:12px 24px 18px}
+  nav a{padding:13px 14px}
+  #home{padding:40px 0 64px}
+  section.blk{padding:64px 0}
+}
+@media (max-width:520px){.three{grid-template-columns:1fr}.act{padding:26px}}
+@media (prefers-reduced-motion:reduce){.rise{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- SVG 픽토그램 모음 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-glass" viewBox="0 0 24 24"><circle cx="8" cy="12" r="4.5"/><circle cx="16" cy="12" r="4.5"/><path d="M12.5 12h-1M3.5 12 2 9M20.5 12 22 9"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11 12 3l9 8M5 10v10h14V10M10 20v-6h4v6"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></symbol>
+  <symbol id="i-work" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-9 9"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M5 16V12l2-5h10l2 5v4M3 16h18v2H3zM7 12h10"/><circle cx="7.5" cy="16" r=".6"/><circle cx="16.5" cy="16" r=".6"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></symbol>
+  <symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5M8 7h7"/></symbol>
+  <symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="9" r="1.6"/><path d="M15 15l2 2"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M12 3v12M7 8l5-5 5 5M4 17v3h16v-3"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></symbol>
+  <symbol id="i-cam" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol>
+  <symbol id="i-face" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 15h8M9 9.5h.01M15 9.5h.01"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap bar">
+    <a href="#home" class="logo"><svg class="ico"><use href="#i-glass"/></svg>glass731</a>
+    <button class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false"><svg class="ico"><use href="#i-menu"/></svg></button>
+    <nav id="nav" aria-label="주 메뉴">
+      <ul>
+        <li><a href="#home" data-s="home"><svg class="ico"><use href="#i-home"/></svg>HOME</a></li>
+        <li><a href="#about" data-s="about"><svg class="ico"><use href="#i-user"/></svg>ABOUT</a></li>
+        <li><a href="#work" data-s="work"><svg class="ico"><use href="#i-work"/></svg>WORK</a></li>
+        <li><a href="#gallery" data-s="gallery"><svg class="ico"><use href="#i-image"/></svg>GALLERY</a></li>
+        <li><a href="#contact" data-s="contact"><svg class="ico"><use href="#i-mail"/></svg>CONTACT</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HOME -->
+<section id="home">
+  <div class="wrap hero">
+    <div>
+      <h1 class="rise">여기가 내 나와바리<br><span class="w">송’s World</span>다.</h1>
+      <p class="sub rise d1">나는 송프로다. 내가 나를 위해 만든 홈페이지입니다.</p>
+      <div class="btns rise d2">
+        <!-- 버튼 문구는 활동지에 비어 있어 예시 문구로 넣었습니다. 바꾸려면 아래 글자만 수정하세요. -->
+        <a class="btn fill" href="#work">활동 보러 가기<svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="btn line" href="#contact">연락하기<svg class="ico"><use href="#i-mail"/></svg></a>
+      </div>
+    </div>
+    <!-- 대표 이미지 자리: 사진을 같은 폴더에 넣고 아래 img 줄의 주석을 풀어 파일명을 바꾸세요 -->
+    <div class="portrait rise d1" role="img" aria-label="대표 이미지 자리">
+      <!-- <img src="leonardo.jpg" alt="레오나르도 다빈치 사진"> -->
+      <div><svg class="ico"><use href="#i-user"/></svg><b>레오나르도 다빈치 사진</b><small>준비되면 이 자리에 넣어요</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="blk white">
+  <div class="wrap">
+    <h2><svg class="ico"><use href="#i-user"/></svg>ABOUT</h2>
+    <p class="lead">glass731 · 나는 송프로다.</p>
+    <div class="about-grid">
+      <div class="story">
+        <p><span><svg class="ico"><use href="#i-car"/></svg>지금 하는 일</span>자동차 설계 엔지니어, IT 전산기획, 재무회계, 인사총무, 노무.</p>
+        <p><span><svg class="ico"><use href="#i-cpu"/></svg>좋아하는 것과 관심사</span>컴퓨터, AI, 유튜브 보기, 지나간 드라마 보기.</p>
+        <p><span><svg class="ico"><use href="#i-compass"/></svg>앞으로 하고 싶은 일</span>백수, 양아치.</p>
+      </div>
+      <div class="kw">
+        <div><h3><svg class="ico"><use href="#i-face"/></svg>성격·태도</h3>
+          <div class="chips"><span class="chip g">차가움</span><span class="chip g">용건만</span><span class="chip g">비사교적</span><span class="chip g">신경질적</span></div></div>
+        <div><h3><svg class="ico"><use href="#i-bolt"/></svg>관심·강점</h3>
+          <div class="chips"><span class="chip">AI</span><span class="chip">도구활용성</span><span class="chip">스피치능력</span></div></div>
+        <div><h3><svg class="ico"><use href="#i-star"/></svg>경험·나만의 특징</h3>
+          <div class="chips"><span class="chip p">모든 걸 경험해보자.</span></div></div>
+      </div>
+    </div>
+    <div class="three">
+      <div class="card"><svg class="ico"><use href="#i-code"/></svg><h3>내가 잘하는 것</h3><p>컴퓨터 사용능력</p></div>
+      <div class="card"><svg class="ico"><use href="#i-play"/></svg><h3>내가 좋아하는 것</h3><p>유튜브 보기, 영화 보기</p></div>
+      <div class="card"><svg class="ico"><use href="#i-bulb"/></svg><h3>요즘 배우고 있는 것</h3><p>AI 기술전반, 파이썬 코딩</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="blk">
+  <div class="wrap">
+    <h2><svg class="ico"><use href="#i-work"/></svg>WORK</h2>
+    <p class="lead">직접 해본 경험 두 가지.</p>
+    <div class="work">
+      <article class="act main">
+        <span class="badge">대표 활동</span>
+        <div class="top"><div class="pic"><svg class="ico"><use href="#i-book"/></svg></div>
+          <div><h3>독서 모임</h3><div class="meta">2026년 · 도서관</div></div></div>
+        <p class="quote">“난 프로다”</p>
+        <dl>
+          <div><dt><svg class="ico"><use href="#i-chat"/></svg>내가 한 일</dt><dd>독서 낭독 후 토론</dd></div>
+          <div><dt><svg class="ico"><use href="#i-target"/></svg>결과·배운 점</dt><dd>다른 사람의 다양한 생각 듣기</dd></div>
+          <div><dt><svg class="ico"><use href="#i-book"/></svg>관련 작품</dt><dd>허삼관 매혈기 외</dd></div>
+        </dl>
+      </article>
+      <article class="act">
+        <div class="top"><div class="pic"><svg class="ico"><use href="#i-ball"/></svg></div>
+          <div><h3>탁구동호회</h3><div class="meta">2025년 · 당구장</div></div></div>
+        <p class="quote">“200점 다마를 위해 노력하자”</p>
+        <dl>
+          <div><dt><svg class="ico"><use href="#i-chat"/></svg>내가 한 일</dt><dd>4구 내기</dd></div>
+          <div><dt><svg class="ico"><use href="#i-target"/></svg>결과·배운 점</dt><dd>150점 초보</dd></div>
+          <div><dt><svg class="ico"><use href="#i-ball"/></svg>관련 연습</dt><dd>맛세이 찍기 연습</dd></div>
+        </dl>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="blk white">
+  <div class="wrap">
+    <h2><svg class="ico"><use href="#i-image"/></svg>GALLERY</h2>
+    <p class="lead">사진은 직접 찍은 것으로 채워 주세요. 아래 칸에 파일을 연결하면 됩니다.</p>
+    <div class="gal">
+      <!-- 사진 교체: 주석 처리된 img 줄의 주석을 풀고 파일명을 바꾸세요 -->
+      <div class="ph"><!-- <img src="photo1.jpg" alt="사진 설명"> --><div><svg class="ico"><use href="#i-cam"/></svg>사진 1</div></div>
+      <div class="ph"><!-- <img src="photo2.jpg" alt="사진 설명"> --><div><svg class="ico"><use href="#i-cam"/></svg>사진 2</div></div>
+      <div class="ph"><!-- <img src="photo3.jpg" alt="사진 설명"> --><div><svg class="ico"><use href="#i-cam"/></svg>사진 3</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="blk">
+  <div class="wrap">
+    <h2><svg class="ico"><use href="#i-mail"/></svg>CONTACT</h2>
+    <p class="lead">용건만 간단히.</p>
+    <a class="mail" href="mailto:glass731@naver.com"><svg class="ico"><use href="#i-mail"/></svg>glass731@naver.com</a>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 glass731 · 송’s World</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav'),b=document.getElementById('burger');
+  b.addEventListener('click',function(){
+    var o=nav.classList.toggle('open');
+    b.setAttribute('aria-expanded',o);
+  });
+  nav.addEventListener('click',function(e){
+    if(e.target.closest('a')){nav.classList.remove('open');b.setAttribute('aria-expanded','false');}
+  });
+  var links=[].slice.call(document.querySelectorAll('nav a'));
+  var secs=links.map(function(a){return document.getElementById(a.dataset.s)});
+  function mark(){
+    var y=window.scrollY+120,cur=0;
+    secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i});
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4)cur=secs.length-1;
+    links.forEach(function(a,i){a.classList.toggle('on',i===cur)});
+  }
+  window.addEventListener('scroll',mark,{passive:true});
+  window.addEventListener('resize',mark);
+  mark();
+})();
+</script>
+</body>
+</html>
